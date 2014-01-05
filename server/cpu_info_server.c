@@ -2,7 +2,8 @@
 #include<sys/types.h>
 #include<sys/socket.h>
 #include<netinet/in.h>
-#include<errno.h>
+
+#include "../include/error.h"
 
 int PORT_NO = 8080;
 
@@ -74,12 +75,6 @@ int main()
 		printf("Received: %s\r\n", buffer_received);
 	}
 	return 0;
-}
-
-void fail(char *msg)
-{
-        printf("FAIL: %s, cause by %s\n", msg, strerror(errno));
-	exit(1);
 }
 
 

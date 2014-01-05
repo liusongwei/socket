@@ -4,10 +4,11 @@
 #include<sys/types.h>
 #include<sys/socket.h>
 #include<string.h>
-#include<errno.h>
 #include<netdb.h>
 #include<netinet/in.h>
 #include<stdlib.h>
+
+#include "../include/error.h"
 
 char* SERVER_HOST_NAME = "127.0.0.1";
 
@@ -66,13 +67,6 @@ int main()
 	return 0;
 }
 
-void fail(char* msg)
-{
-	perror("error happened");
-	printf("%s\n", strerror(errno));
-	printf("FAIL: %s\n", msg);
-	exit(1);
-}
 
 char* get_cpu_info()
 {
